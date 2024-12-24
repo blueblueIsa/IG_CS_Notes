@@ -1,0 +1,22 @@
+---
+const { isAuthenticated } = Astro.props;
+---
+
+{isAuthenticated ? (
+  <button id="logout-btn" class="hover:text-slate-300">Logout</button>
+) : (
+  <a href="/login" class="hover:text-slate-300">Login</a>
+)}
+
+<script>
+  import { handleLogout } from '../../utils/auth';
+
+  const logoutBtn = document.getElementById('logout-btn');
+  
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', async () => {
+      await handleLogout();
+      window.location.href = '/login';
+    });
+  }
+</script>

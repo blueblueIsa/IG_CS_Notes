@@ -1,0 +1,32 @@
+---
+interface Operator {
+  symbol: string;
+  name: string;
+  example: string;
+  result?: string;
+}
+
+const { operators } = Astro.props;
+---
+<div class="overflow-x-auto">
+  <table class="min-w-full bg-white rounded-lg overflow-hidden">
+    <thead class="bg-slate-800 text-white">
+      <tr>
+        <th class="px-4 py-2">Operator</th>
+        <th class="px-4 py-2">Name</th>
+        <th class="px-4 py-2">Example</th>
+        <th class="px-4 py-2">Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      {operators.map(op => (
+        <tr class="border-b hover:bg-slate-50">
+          <td class="px-4 py-2 font-mono">{op.symbol}</td>
+          <td class="px-4 py-2">{op.name}</td>
+          <td class="px-4 py-2 font-mono">{op.example}</td>
+          <td class="px-4 py-2">{op.result}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

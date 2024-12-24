@@ -1,0 +1,30 @@
+---
+import Card from '../ui/Card.astro';
+import PseudocodeExample from './PseudocodeExample.astro';
+import Flowchart from './Flowchart.astro';
+import FlowchartSymbol from './FlowchartSymbol.astro';
+import { getIterationExamples } from '../../utils/iterationExamples';
+
+const examples = getIterationExamples();
+---
+
+<section class="mb-8">
+  <h2>Iteration Structures</h2>
+  
+  {examples.map(example => (
+    <Card title={example.title}>
+      <PseudocodeExample
+        code={example.code}
+        description={example.description}
+      />
+      <Flowchart title={`${example.title} Example`}>
+        {example.flowchart.map(symbol => (
+          <FlowchartSymbol 
+            type={symbol.type} 
+            text={symbol.text} 
+          />
+        ))}
+      </Flowchart>
+    </Card>
+  ))}
+</section>

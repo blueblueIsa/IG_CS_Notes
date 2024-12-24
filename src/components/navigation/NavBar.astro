@@ -1,0 +1,18 @@
+---
+const navItems = [
+  { href: '/theory', label: 'Theory' },
+  { href: '/programming', label: 'Programming' },
+  { href: '/resources', label: 'Resources' }
+];
+---
+
+<nav class="bg-slate-800 text-white p-4">
+  <div class="container mx-auto flex justify-between items-center">
+    <a href="/" class="text-xl font-bold">Computer Science Study Guide</a>
+    <div class="space-x-4">
+      {navItems.map(item => (
+        <a href={item.href} class="hover:text-slate-300">{item.label}</a>
+      ))}
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,53 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/ui/Card.astro';
+import CodeBlock from '../../components/ui/CodeBlock.astro';
+import { formatBinary } from '../../utils/formatters';
+---
+
+<Layout title="Data Representation - IG Computer Science">
+  <h1>Data Representation</h1>
+  
+  <section class="mb-8">
+    <h2>Binary Numbers</h2>
+    <p>
+      Binary is a base-2 number system used by computers. It consists of only two digits: 0 and 1.
+      Each digit in a binary number is called a bit (binary digit).
+    </p>
+    <Card title="Converting Binary to Decimal">
+      <p>
+        To convert binary to decimal, multiply each digit by its position value (power of 2) and sum the results.
+      </p>
+      <CodeBlock code={`Example: ${formatBinary('1101')}₂
+1×2³ + 1×2² + 0×2¹ + 1×2⁰
+8 + 4 + 0 + 1 = 13₁₀`} />
+    </Card>
+  </section>
+
+  <section class="mb-8">
+    <h2>Hexadecimal</h2>
+    <p>
+      Hexadecimal is a base-16 number system. It uses digits 0-9 and letters A-F to represent values.
+      It's often used as a more readable way to represent binary numbers.
+    </p>
+    <Card title="Hex to Binary Conversion">
+      <p>Each hexadecimal digit represents exactly 4 binary digits:</p>
+      <CodeBlock code={`A₁₆ = ${formatBinary('1010')}₂
+F₁₆ = ${formatBinary('1111')}₂
+Example: 2F₁₆ = ${formatBinary('00101111')}₂`} />
+    </Card>
+  </section>
+
+  <section class="mb-8">
+    <h2>Text Representation</h2>
+    <p>
+      Computers store text using character encoding systems. ASCII and Unicode are two common encoding systems.
+    </p>
+    <Card title="ASCII">
+      <p>
+        ASCII uses 7 bits to represent characters, allowing for 128 different characters.
+        Extended ASCII uses 8 bits, allowing for 256 characters.
+      </p>
+    </Card>
+  </section>
+</Layout>

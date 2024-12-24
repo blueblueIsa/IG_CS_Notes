@@ -1,0 +1,12 @@
+---
+interface Props {
+  code: string;
+  description?: string;
+}
+
+const { code, description } = Astro.props;
+---
+<div class="bg-slate-50 p-4 rounded-lg font-mono text-sm">
+  <pre class="whitespace-pre-wrap">{code}</pre>
+  {description && <p class="mt-2 text-slate-600 font-sans text-sm">{description}</p>}
+</div>

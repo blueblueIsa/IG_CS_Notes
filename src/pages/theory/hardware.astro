@@ -1,0 +1,66 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/ui/Card.astro';
+import CPUDiagram from '../../components/hardware/CPUDiagram.astro';
+import StorageComparison from '../../components/hardware/StorageComparison.astro';
+---
+
+<Layout title="Computer Hardware - IG Computer Science">
+  <h1>Computer Hardware</h1>
+
+  <section class="mb-8">
+    <h2>Central Processing Unit (CPU)</h2>
+    <p>
+      The CPU is the brain of the computer, responsible for executing instructions and performing calculations.
+    </p>
+    
+    <Card title="CPU Components">
+      <CPUDiagram />
+      <h3 class="mt-4">Main Components:</h3>
+      <ul class="list-disc ml-6">
+        <li><strong>Control Unit (CU):</strong> Manages and coordinates CPU operations</li>
+        <li><strong>Arithmetic Logic Unit (ALU):</strong> Performs mathematical and logical operations</li>
+        <li><strong>Registers:</strong> Small, fast memory locations for temporary data storage</li>
+        <li><strong>Cache:</strong> High-speed memory that stores frequently accessed data</li>
+      </ul>
+    </Card>
+
+    <Card title="CPU Characteristics">
+      <ul class="list-disc ml-6">
+        <li><strong>Clock Speed:</strong> Measured in Hz (e.g., 3.4 GHz), determines how many cycles per second</li>
+        <li><strong>Cores:</strong> Multiple processing units for parallel execution</li>
+        <li><strong>Cache Size:</strong> Affects performance by storing frequently used data</li>
+      </ul>
+    </Card>
+  </section>
+
+  <section class="mb-8">
+    <h2>Storage Devices</h2>
+    <p>
+      Computers use different types of storage devices to store data permanently or temporarily.
+    </p>
+
+    <Card title="Storage Device Comparison">
+      <StorageComparison />
+    </Card>
+
+    <Card title="Storage Hierarchy">
+      <ul class="list-disc ml-6">
+        <li><strong>Primary Storage (RAM):</strong>
+          <ul class="ml-6">
+            <li>Volatile memory - loses data when power is off</li>
+            <li>Very fast access speed</li>
+            <li>Used for running programs and temporary data</li>
+          </ul>
+        </li>
+        <li><strong>Secondary Storage:</strong>
+          <ul class="ml-6">
+            <li>Non-volatile - retains data without power</li>
+            <li>Includes SSDs, HDDs, and optical drives</li>
+            <li>Used for long-term data storage</li>
+          </ul>
+        </li>
+      </ul>
+    </Card>
+  </section>
+</Layout>

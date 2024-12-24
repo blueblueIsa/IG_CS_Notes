@@ -1,0 +1,22 @@
+---
+import { getSymbolClass, getSymbolDimensions } from '../../utils/flowchartStyles';
+
+interface Props {
+  type: 'start' | 'process' | 'decision' | 'input' | 'output' | 'end';
+  text: string;
+}
+
+const { type, text } = Astro.props;
+
+const symbolClass = getSymbolClass(type);
+const dimensions = getSymbolDimensions(type);
+---
+
+<div class={`relative ${type === 'decision' ? 'my-12' : ''}`}>
+  <div class={`border-2 p-4 flex items-center justify-center text-center ${dimensions} ${symbolClass}`}>
+    <span class={type === 'decision' ? '-rotate-45 w-full' : type === 'input' || type === 'output' ? '-skew-x-12' : ''}>
+      {text}
+    </span>
+  </div>
+  {type !== 'end' && <div class="h-12 w-0.5 bg-gray-400 mx-auto"></div>}
+</div>

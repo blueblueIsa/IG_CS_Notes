@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TopicCard from '../components/TopicCard.astro';
+---
+
+<Layout title="Computer Science Study Guide">
+	<div class="text-center mb-12">
+		<h1>Welcome to Computer Science</h1>
+		<p class="text-xl text-slate-600 max-w-2xl mx-auto">
+			Comprehensive study materials and notes for Computer Science students.
+		</p>
+	</div>
+
+	<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+		<TopicCard
+			href="/theory/data-representation"
+			title="Data Representation"
+			description="Learn about binary, hexadecimal, and how computers store different types of data."
+		/>
+		<TopicCard
+			href="/theory/hardware"
+			title="Computer Hardware"
+			description="Understand CPU architecture, memory systems, and input/output devices."
+		/>
+    <TopicCard
+			href="/programming/basics"
+			title="Programming Basics"
+			description="Get started with programming concepts, algorithms, and pseudocode."
+		/>
+    <TopicCard
+			href="/programming/array1D"
+			title="ARRAY 1D"
+			description="ARRAY 1D."
+		/>
+	</div>
+</Layout>
