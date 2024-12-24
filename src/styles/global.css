@@ -38,3 +38,16 @@ p {
   margin-bottom: 1rem;
   line-height: 1.6;
 }
+
+.decision-box {
+  width: 300px; /* 设置基础宽度为200像素 */
+  min-width: 200px; /* 确保最小宽度为200像素，防止内容太少时框体过窄 */
+  width: fit-content; /* 让框体宽度根据内容自动调整，会等于或略大于最长文本行的宽度 */
+  max-width: 100%; /* 限制最大宽度不超过父容器宽度，避免溢出等问题 */
+}
+
+.rotate-text-container {
+  display: inline-block; /* 让其宽度能根据内部文本自适应 */
+  white-space: nowrap; /* 防止文本换行 */
+  overflow: hidden; /* 隐藏超出部分（如果有需要可以调整为其他溢出处理方式，比如显示滚动条等） */
+}

@@ -2,52 +2,72 @@
 import Layout from '../../layouts/Layout.astro';
 import Card from '../../components/ui/Card.astro';
 import CodeBlock from '../../components/ui/CodeBlock.astro';
-import { formatBinary } from '../../utils/formatters';
+import NumberRepresentation from '../../components/data/NumberRepresentation.astro'
+import MediaRepresentation from '../../components/data/MediaRepresentation.astro'
+import DataCompression from '../../components/data/DataCompression.astro'
 ---
 
 <Layout title="Data Representation - IG Computer Science">
   <h1>Data Representation</h1>
+
+  <section class="mb-8">
+    <NumberRepresentation />
+  </section>
+
+  <section class="mb-8">
+    <MediaRepresentation />
+  </section>
   
   <section class="mb-8">
-    <h2>Binary Numbers</h2>
-    <p>
-      Binary is a base-2 number system used by computers. It consists of only two digits: 0 and 1.
-      Each digit in a binary number is called a bit (binary digit).
-    </p>
-    <Card title="Converting Binary to Decimal">
-      <p>
-        To convert binary to decimal, multiply each digit by its position value (power of 2) and sum the results.
-      </p>
-      <CodeBlock code={`Example: ${formatBinary('1101')}₂
-1×2³ + 1×2² + 0×2¹ + 1×2⁰
-8 + 4 + 0 + 1 = 13₁₀`} />
+    <h2>Number Representation</h2>
+    <Card title="Signed Numbers">
+      <h3>1. Sign-and-Magnitude</h3>
+      <CodeBlock code={`Example: -5 in 8 bits
+Sign bit: 1 (negative)
+Magnitude: 0000101
+Result: 10000101`} />
+
+      <h3 class="mt-4">2. One's Complement (Inverse Code)</h3>
+      <p>Invert all bits of the positive number</p>
+      <CodeBlock code={`Positive 5:  00000101
+Negative 5: 11111010 (inverted)`} />
+
+      <h3 class="mt-4">3. Two's Complement</h3>
+      <p>One's complement + 1</p>
+      <CodeBlock code={`Positive 5:  00000101
+One's complement: 11111010
+Add 1:           11111011 (final negative 5)`} />
+
+      <table class="w-full mt-4 border-collapse border border-gray-300">
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="border p-2">Method</th>
+            <th class="border p-2">Advantages</th>
+            <th class="border p-2">Disadvantages</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border p-2">Sign-and-Magnitude</td>
+            <td class="border p-2">Simple to understand</td>
+            <td class="border p-2">Two representations of zero</td>
+          </tr>
+          <tr>
+            <td class="border p-2">One's Complement</td>
+            <td class="border p-2">Easy to negate numbers</td>
+            <td class="border p-2">Two zeros, complex addition</td>
+          </tr>
+          <tr>
+            <td class="border p-2">Two's Complement</td>
+            <td class="border p-2">Single zero, simple arithmetic</td>
+            <td class="border p-2">More complex to negate</td>
+          </tr>
+        </tbody>
+      </table>
     </Card>
   </section>
 
   <section class="mb-8">
-    <h2>Hexadecimal</h2>
-    <p>
-      Hexadecimal is a base-16 number system. It uses digits 0-9 and letters A-F to represent values.
-      It's often used as a more readable way to represent binary numbers.
-    </p>
-    <Card title="Hex to Binary Conversion">
-      <p>Each hexadecimal digit represents exactly 4 binary digits:</p>
-      <CodeBlock code={`A₁₆ = ${formatBinary('1010')}₂
-F₁₆ = ${formatBinary('1111')}₂
-Example: 2F₁₆ = ${formatBinary('00101111')}₂`} />
-    </Card>
-  </section>
-
-  <section class="mb-8">
-    <h2>Text Representation</h2>
-    <p>
-      Computers store text using character encoding systems. ASCII and Unicode are two common encoding systems.
-    </p>
-    <Card title="ASCII">
-      <p>
-        ASCII uses 7 bits to represent characters, allowing for 128 different characters.
-        Extended ASCII uses 8 bits, allowing for 256 characters.
-      </p>
-    </Card>
+    <DataCompression />
   </section>
 </Layout>

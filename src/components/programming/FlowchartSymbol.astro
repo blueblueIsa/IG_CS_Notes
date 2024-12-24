@@ -9,14 +9,36 @@ interface Props {
 const { type, text } = Astro.props;
 
 const symbolClass = getSymbolClass(type);
-const dimensions = getSymbolDimensions(type);
+const dimensions = getSymbolDimensions(type, text);
 ---
 
-<div class={`relative ${type === 'decision' ? 'my-12' : ''}`}>
-  <div class={`border-2 p-4 flex items-center justify-center text-center ${dimensions} ${symbolClass}`}>
-    <span class={type === 'decision' ? '-rotate-45 w-full' : type === 'input' || type === 'output' ? '-skew-x-12' : ''}>
-      {text}
-    </span>
+<div class="flex flex-col items-center">
+  <div class="relative">
+    <!-- Top connector -->
+    {type !== 'start' && <div class="absolute top-0 left-1/2 -translate-x-1/2 h-4 w-0.5 bg-gray-400 -translate-y-full"></div>}
+    
+    <!-- Symbol container -->
+    <div class={`border-2 p-6 ${dimensions} ${symbolClass} `}>
+      {type === 'decision' ? (
+        <div class="absolute inset-0 flex items-center justify-center [transform:rotate(-45deg)]">
+        <div class="rotate-text-container">
+          <span class="whitespace-pre-line leading-[1.2]">{text}</span>
+        </div>
+        </div>
+      ) : (
+        <span class="whitespace-pre-line leading-[1.2]">{text}</span>
+      )}
+    </div>
+
+    <!-- Side connectors for decision -->
+    {type === 'decision' && (
+      <>
+        <div class="absolute top-1/2 -translate-y-1/2 -left-4 w-8 h-0.5 bg-gray-400"></div>
+        <div class="absolute top-1/2 -translate-y-1/2 -right-4 w-4 h-0.5 bg-gray-400"></div>
+      </>
+    )}
+
+    <!-- Bottom connector -->
+    {type !== 'end' && <div class="absolute bottom-0 left-1/2 -translate-x-1/2 h-4 w-0.5 bg-gray-400 translate-y-full"></div>}
   </div>
-  {type !== 'end' && <div class="h-12 w-0.5 bg-gray-400 mx-auto"></div>}
 </div>

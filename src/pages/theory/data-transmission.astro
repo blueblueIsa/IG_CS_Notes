@@ -1,0 +1,95 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/ui/Card.astro';
+import PacketSwitching from '../../components/transmission/PacketSwitching.astro';
+import Encryption from '../../components/transmission/Encryption.astro';
+---
+
+<Layout title="Data Transmission - IG Computer Science">
+  <h1>Data Transmission</h1>
+
+  <section class="mb-8">
+    <PacketSwitching />
+  </section>
+
+  <section class="mb-8">
+    <h2>Error Checking Methods</h2>
+    <Card>
+      <h3>1. Parity Check</h3>
+      <ul class="list-disc ml-6 mb-4">
+        <li>Adds an extra bit to make total number of 1s even (even parity) or odd (odd parity)</li>
+        <li>Can detect single-bit errors</li>
+        <li>Simple but limited error detection</li>
+      </ul>
+
+      <h3>2. Check Digit</h3>
+      <ul class="list-disc ml-6 mb-4">
+        <li>Additional digit calculated from other digits</li>
+        <li>Common in ISBNs and bank card numbers</li>
+        <li>Can detect transposition errors</li>
+      </ul>
+
+      <h3>3. Checksum</h3>
+      <ul class="list-disc ml-6 mb-4">
+        <li>Mathematical sum of all data bytes</li>
+        <li>Transmitted with data for verification</li>
+        <li>More robust than parity check</li>
+      </ul>
+
+      <h3>4. Echo Check</h3>
+      <ul class="list-disc ml-6 mb-4">
+        <li>Receiver sends back received data</li>
+        <li>Sender compares with original</li>
+        <li>Simple but doubles transmission time</li>
+      </ul>
+
+      <h3>5. ARQ (Automatic Repeat Request)</h3>
+      <ul class="list-disc ml-6 mb-4">
+        <li>Combines error detection with retransmission</li>
+        <li>Uses acknowledgment signals</li>
+        <li>Most reliable but higher overhead</li>
+      </ul>
+
+      <table class="w-full mt-4 border-collapse border border-gray-300">
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="border p-2">Method</th>
+            <th class="border p-2">Advantages</th>
+            <th class="border p-2">Disadvantages</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border p-2">Parity</td>
+            <td class="border p-2">Simple, low overhead</td>
+            <td class="border p-2">Cannot detect even number of errors</td>
+          </tr>
+          <tr>
+            <td class="border p-2">Check Digit</td>
+            <td class="border p-2">Good for numerical data</td>
+            <td class="border p-2">Limited to specific applications</td>
+          </tr>
+          <tr>
+            <td class="border p-2">Checksum</td>
+            <td class="border p-2">Good general-purpose detection</td>
+            <td class="border p-2">Moderate overhead</td>
+          </tr>
+          <tr>
+            <td class="border p-2">Echo Check</td>
+            <td class="border p-2">Very reliable</td>
+            <td class="border p-2">Doubles transmission time</td>
+          </tr>
+          <tr>
+            <td class="border p-2">ARQ</td>
+            <td class="border p-2">Most reliable, automatic correction</td>
+            <td class="border p-2">High overhead, complex</td>
+          </tr>
+        </tbody>
+      </table>
+    </Card>
+  </section>
+
+  <section class="mb-8">
+    <Encryption />
+  </section>
+</Layout>

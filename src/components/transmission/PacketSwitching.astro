@@ -1,0 +1,20 @@
+---
+import Card from '../ui/Card.astro';
+---
+<section class="mb-8">
+  <h2>Packet Switching</h2>
+  <Card>
+    <ul class="list-disc ml-6">
+      <li>Data divided into packets</li>
+      <li>Each packet contains:
+        <ul class="list-disc ml-6">
+          <li>Header (source, destination, sequence number)</li>
+          <li>Payload (actual data)</li>
+          <li>Trailer (error checking)</li>
+        </ul>
+      </li>
+      <li>Packets can take different routes</li>
+      <li>Reassembled at destination</li>
+    </ul>
+  </Card>
+</section>

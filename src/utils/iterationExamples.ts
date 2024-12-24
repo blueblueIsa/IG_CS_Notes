@@ -19,12 +19,12 @@ export function getIterationExamples(): IterationExample[] {
 NEXT counter`,
       description: 'Repeats a set of instructions a specific number of times.',
       flowchart: [
-        { type: 'start', text: 'Start' },
-        { type: 'process', text: 'counter = 1' },
+        { type: 'start', text: 'START' },
+        { type: 'process', text: 'counter ← 1' },
         { type: 'decision', text: 'counter <= 5?' },
-        { type: 'output', text: 'Display counter' },
-        { type: 'process', text: 'counter = counter + 1' },
-        { type: 'end', text: 'End' }
+        { type: 'output', text: 'OUTPUT counter' },
+        { type: 'process', text: 'counter ← counter + 1' },
+        { type: 'end', text: 'END' }
       ]
     },
     {
@@ -39,7 +39,7 @@ UNTIL number > 10`,
       flowchart: [
         { type: 'start', text: 'START' },
         { type: 'process', text: 'number ← 1' },
-        { type: 'output', text: 'Display number' },
+        { type: 'output', text: 'OUTPUT number' },
         { type: 'process', text: 'number ← number + 2' },
         { type: 'decision', text: 'number > 10?' },
         { type: 'end', text: 'END' }

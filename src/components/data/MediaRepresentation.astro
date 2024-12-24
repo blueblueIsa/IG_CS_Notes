@@ -1,0 +1,21 @@
+---
+import Card from '../ui/Card.astro';
+---
+<section class="mb-8">
+  <h2>Media Representation</h2>
+  <Card>
+    <h3>Images</h3>
+    <ul class="list-disc ml-6 mb-4">
+      <li>Resolution: Width × Height in pixels</li>
+      <li>Color depth: Bits per pixel (e.g., 24-bit = 16.7M colors)</li>
+      <li>File size = Resolution × Color depth</li>
+    </ul>
+
+    <h3>Sound</h3>
+    <ul class="list-disc ml-6">
+      <li>Sample rate: Samples per second (e.g., 44.1kHz)</li>
+      <li>Sample resolution: Bits per sample (e.g., 16-bit)</li>
+      <li>File size = Sample rate × Sample resolution × Duration</li>
+    </ul>
+  </Card>
+</section>

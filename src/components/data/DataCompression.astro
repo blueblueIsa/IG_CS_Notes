@@ -1,0 +1,22 @@
+---
+import Card from '../ui/Card.astro';
+import CodeBlock from '../ui/CodeBlock.astro';
+---
+<section class="mb-8">
+  <h2>Data Compression</h2>
+  <Card>
+    <h3>Lossless Compression</h3>
+    <p>Original data can be perfectly reconstructed</p>
+    <h4>Run Length Encoding (RLE)</h4>
+    <CodeBlock code={`Original: WWWWWBBBBB
+RLE: 5W5B
+Space saved: 50%`} />
+
+    <h3 class="mt-4">Lossy Compression</h3>
+    <ul class="list-disc ml-6">
+      <li>Reduces file size by removing less important data</li>
+      <li>Used in JPEG (images) and MP3 (audio)</li>
+      <li>Cannot recover original data exactly</li>
+    </ul>
+  </Card>
+</section>

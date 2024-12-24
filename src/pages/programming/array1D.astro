@@ -1,10 +1,116 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import IterationSection from '../../components/programming/IterationSection.astro';
-import OperatorTable from '../../components/programming/OperatorTable.astro';
-import { arithmeticOperators, comparisonOperators } from '../../data/operators';
+import Card from '../../components/ui/Card.astro';
+import CodeBlock from '../../components/ui/CodeBlock.astro';
 ---
 
-<Layout title="Programming Array 1D - IG Computer Science">
-  <h1>Array 1D</h1>
+<Layout title="Array 1D - IG Computer Science">
+  <h1>Array 1D (One-Dimensional Arrays)</h1>
+
+  <section class="mb-8">
+    <h2>Introduction to Arrays</h2>
+    <Card>
+      <p>An array is a data structure that can store multiple values of the same data type in consecutive memory locations.</p>
+      <CodeBlock 
+        code={`// Array declaration
+DECLARE numbers : ARRAY[1:5] OF INTEGER
+// Array initialization
+numbers[1] ← 10
+numbers[2] ← 20
+numbers[3] ← 30
+numbers[4] ← 40
+numbers[5] ← 50`}
+      />
+    </Card>
+  </section>
+
+  <section class="mb-8">
+    <h2>Common Array Operations</h2>
+    <Card>
+      <h3>1. Traversing an Array</h3>
+      <CodeBlock 
+        code={`FOR i ← 1 TO 5
+    OUTPUT numbers[i]
+NEXT i`}
+      />
+
+      <h3 class="mt-4">2. Finding Maximum/Minimum</h3>
+      <CodeBlock 
+        code={`max ← numbers[1]
+FOR i ← 2 TO 5
+    IF numbers[i] > max THEN
+        max ← numbers[i]
+    ENDIF
+NEXT i`}
+      />
+
+      <h3 class="mt-4">3. Linear Search</h3>
+      <CodeBlock 
+        code={`FUNCTION linearSearch(arr : ARRAY OF INTEGER, target : INTEGER) RETURNS INTEGER
+    FOR i ← 1 TO LENGTH(arr)
+        IF arr[i] = target THEN
+            RETURN i
+        ENDIF
+    NEXT i
+    RETURN -1
+ENDFUNCTION`}
+      />
+    </Card>
+  </section>
+
+  <section class="mb-8">
+    <h2>Past Paper Questions (2022-2023)</h2>
+    <Card title="2023 May/June Question">
+      <p class="font-semibold">Question:</p>
+      <p class="mb-4">Write pseudocode to find the average of all positive numbers in an array of 10 integers.</p>
+      <p class="font-semibold">Model Answer:</p>
+      <CodeBlock 
+        code={`DECLARE numbers : ARRAY[1:10] OF INTEGER
+DECLARE sum, count : INTEGER
+DECLARE average : REAL
+
+sum ← 0
+count ← 0
+
+FOR i ← 1 TO 10
+    IF numbers[i] > 0 THEN
+        sum ← sum + numbers[i]
+        count ← count + 1
+    ENDIF
+NEXT i
+
+IF count > 0 THEN
+    average ← sum / count
+    OUTPUT "Average is: ", average
+ELSE
+    OUTPUT "No positive numbers found"
+ENDIF`}
+      />
+    </Card>
+
+    <Card title="2022 Oct/Nov Question">
+      <p class="font-semibold">Question:</p>
+      <p class="mb-4">Write a procedure that takes an array of integers and reverses the order of its elements.</p>
+      <p class="font-semibold">Model Answer:</p>
+      <CodeBlock 
+        code={`PROCEDURE reverseArray(arr : ARRAY OF INTEGER)
+    DECLARE temp : INTEGER
+    DECLARE start, end : INTEGER
+    
+    start ← 1
+    end ← LENGTH(arr)
+    
+    WHILE start < end DO
+        // Swap elements
+        temp ← arr[start]
+        arr[start] ← arr[end]
+        arr[end] ← temp
+        
+        start ← start + 1
+        end ← end - 1
+    ENDWHILE
+ENDPROCEDURE`}
+      />
+    </Card>
+  </section>
 </Layout>

@@ -1,0 +1,28 @@
+---
+import CodeBlock from '../ui/CodeBlock.astro';
+---
+<div class="mb-8">
+  <h2>Number Systems</h2>
+  <div class="grid gap-4">
+    <div>
+      <h3>Binary (Base-2)</h3>
+      <CodeBlock code={`
+Decimal 13 to Binary:
+13 ÷ 2 = 6 remainder 1
+6 ÷ 2 = 3 remainder 0
+3 ÷ 2 = 1 remainder 1
+1 ÷ 2 = 0 remainder 1
+Result: 1101₂`} />
+    </div>
+    
+    <div>
+      <h3>Hexadecimal (Base-16)</h3>
+      <CodeBlock code={`
+Binary to Hex conversion:
+1101 0011₂
+1101₂ = D₁₆
+0011₂ = 3₁₆
+Result: D3₁₆`} />
+    </div>
+  </div>
+</div>
